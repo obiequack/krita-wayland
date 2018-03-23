@@ -484,8 +484,6 @@ endif()
 
 if (NOT WIN32 AND NOT APPLE AND NOT ANDROID)
 
-    find_package(Qt5 ${MIN_QT_VERSION} REQUIRED X11Extras)
-
     find_package(Qt5DBus ${MIN_QT_VERSION})
     set(HAVE_DBUS ${Qt5DBus_FOUND})
     set_package_properties(Qt5DBus PROPERTIES
@@ -502,10 +500,8 @@ if (NOT WIN32 AND NOT APPLE AND NOT ANDROID)
         TYPE OPTIONAL
         PURPOSE "Optionally used to provide crash reporting on Linux")
 
-    find_package(X11 REQUIRED COMPONENTS Xinput)
-    set(HAVE_X11 TRUE)
-    add_definitions(-DHAVE_X11)
-
+    set(HAVE_X11 FALSE)
+    set(HAVE_XCB FALSE)
 else()
     set(HAVE_DBUS FALSE)
     set(HAVE_X11 FALSE)

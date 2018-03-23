@@ -13,6 +13,14 @@
 # include <QtCore/QStringList>
 # include <QtCore/QtGlobal>
 
+#ifdef major
+#undef major
+#endif
+
+#ifdef minor
+#undef minor
+#endif
+
 namespace PyKrita
 {
 
