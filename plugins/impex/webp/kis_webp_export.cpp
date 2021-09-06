@@ -88,8 +88,8 @@ KisPropertiesConfigurationSP KisWebPExport::defaultConfiguration(const QByteArra
     cfg->setProperty("exact", preset.exact == 1);
     cfg->setProperty("use_sharp_yuv", preset.use_sharp_yuv == 1);
 #if WEBP_ENCODER_ABI_VERSION >= 0x020f
-    cfg->setProperty("qmin", preset.qmin);
-    cfg->setProperty("qmax", preset.qmax);
+    // cfg->setProperty("qmin", preset.qmin);
+    // cfg->setProperty("qmax", preset.qmax);
 #endif
 
     return cfg;
@@ -136,8 +136,8 @@ KisImportExportErrorCode KisWebPExport::convert(KisDocument *document, QIODevice
         config.exact = cfg->getBool("exact", 0) ? 1 : 0;
         config.use_sharp_yuv = cfg->getBool("use_sharp_yuv", false) ? 1 : 0;
 #if WEBP_ENCODER_ABI_VERSION >= 0x020f
-        config.qmin = cfg->getInt("qmin", 0);
-        config.qmax = cfg->getInt("qmax", 100);
+        // config.qmin = cfg->getInt("qmin", 0);
+        // config.qmax = cfg->getInt("qmax", 100);
 #endif
 
         if (!WebPValidateConfig(&config)) {
